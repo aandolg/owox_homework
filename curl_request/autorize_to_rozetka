@@ -1,0 +1,22 @@
+#!/bin/bash
+    curl -X POST \
+    -H 'Accept: text/javascript, text/html, application/xml, text/xml, */*' \
+    -H 'Accept-Encoding: gzip, deflate, br' \
+    -H 'Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \
+    -H 'ajaxAction: https://my.rozetka.com.ua/signin#SignIn' \
+    -H 'Connection: keep-alive' \
+    -H 'Content-Length: 115' \
+    -H 'Content-type: application/x-www-form-urlencoded; charset=UTF-8' \
+    -H 'Cookie: ab_main_page=old; uid=rB4eB1u9zAJkBUY3VmxGAg==; _gcl_au=1.1.1669996623.1539165187; ab_cvt=new; ab_opca=new; slang=ru; device_type=computer; visitor_city=28; mini_cart_block_state=%22maximized%22; mini_waitlist_available_block_state=%22maximized%22; _ga=GA1.3.2118023634.1539165189; _gid=GA1.3.110460379.1539165189; __utmc=28000675; __utmz=28000675.1539165189.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __exponea_etc__=1a32b03e-3d23-4a93-8b85-7c1a4bff0f37; __utmz_gtm=utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); cto_lwid=3826d8f8-d910-4588-8261-aab20cbdae19; __utma=28000675.2118023634.1539165189.1539165189.1539170676.2; __exponea_time2__=-0.06579184532165527; ho_sid=1; sid=58bf28514bc3c1dbf22146fa949e9541; login=aando.lg%40gmail.com; rg_updated=true; __utmt=1; __utmv=28000675.|5=VisitorCity=28=1; href=https%3A%2F%2Frozetka.com.ua%2F; __utmb=28000675.8.9.1539171818363' \
+    -H 'Host: rozetka.com.ua' \
+    -H 'Origin: https://rozetka.com.ua' \
+    -H 'Referer: https://rozetka.com.ua/' \
+    -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36' \
+    -H 'X-Compress: null' \
+    -H 'x-request-token: 3dc22fedc555d561c89fb59b83bcfa2d' \
+    -H 'X-Requested-With: XMLHttpRequest' \
+    -H 'X-Rozetka-Header: true' \
+    -d "{'login':'$USER','password':'$PASSWORD', 'remember':'1','request_token':'rB4eB1u9zAJkBUY3VmxGAg==','auth_submit'=}" \
+    https://rozetka.com.ua/cgi-bin/form.php \
+    -c /tmp/autorize_cookie.txt
+

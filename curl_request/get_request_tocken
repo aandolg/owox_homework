@@ -1,0 +1,5 @@
+#!/bin/bash
+curl -X GET -H 'Content-Type: text/html'  https://rozetka.com.ua/ -c tmp/cookie.txt > tmp/main_page_response
+cat cookie.txt | grep uid |  sed 's|.*\t||' > tmp/request_tocken
+ 
+
