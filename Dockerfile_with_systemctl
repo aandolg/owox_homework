@@ -1,0 +1,23 @@
+FROM aandolg/centos7_systemctl:1.0
+LABEL maintainer="Starchenko Alex <aando.lg@gmail.com>"
+
+RUN yum install -y epel-release &&\
+    yum install -y nginx &&\
+    yum clean -y all &&\
+    systemctl enable nginx &&\
+    mkdir -p /usr/share/nginx/html
+
+###Copy config files###
+ADD config /
+###Change permission(not safe)####
+RUN chmod 777 /usr/bin/container-entrypoint /usr/bin/nginx18  &&\ 
+    ln -s /usr/bin/container-entrypoint /
+
+###Copy source files###
+COPY src/. /usr/share/nginx/html/.
+
+EXPOSE  80
+
+ENTRYPOINT ["container-entrypoint"]
+CMD [ "nginx18" ]
+

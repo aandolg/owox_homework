@@ -1,20 +1,25 @@
-FROM aandolg/centos7_systemctl:1.0
+FROM centos:7
+LABEL maintainer="Starchenko Alex <aando.lg@gmail.com>"
 
-RUN yum install -y epel-release &&\
-    yum install -y nginx &&\
-    yum clean -y all &&\
-    systemctl enable nginx &&\
-    mkdir -p /usr/share/nginx/html
+###ENV for nginx version###
+ENV nginxversion="1.12.2-1" \
+    os="centos" \
+    osversion="7" \
+    elversion="7_4"
 
-ADD config /
+###Install wget openssl sed nginx###
+RUN yum install -y wget openssl sed &&\
+    yum -y autoremove &&\
+    yum clean all &&\
+    wget http://nginx.org/packages/$os/$osversion/x86_64/RPMS/nginx-$nginxversion.el$elversion.ngx.x86_64.rpm &&\
+    rpm -iv nginx-$nginxversion.el$elversion.ngx.x86_64.rpm 
 
-RUN chmod 777 /usr/bin/container-entrypoint /usr/bin/nginx18  &&\ 
-    ln -s /usr/bin/container-entrypoint /
+###Copy config files for nginx###
+COPY config/etc/. /etc/.
 
+###Copy source files###
 COPY src/. /usr/share/nginx/html/.
 
 EXPOSE  80
 
-ENTRYPOINT ["container-entrypoint"]
-CMD [ "nginx18" ]
-
+CMD ["nginx"]

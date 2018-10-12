@@ -7,4 +7,4 @@ else
 fi
 
 echo "Try start container $port"
-docker run --name "aandolg_container_$port" -d -p $port:80 aandolg/nginx:1.0
+docker run --name "aandolg_container_$port" -d -p $port:80 aandolg/nginx_systemctl:1.0
