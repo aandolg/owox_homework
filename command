@@ -1,3 +1,4 @@
+#DOCKER 
 docker build -t aandolg/centos7_systemctl:1.0 . -f Dockerfile_centos_systemctl
 
 docker build -t aandolg/nginx:1.0 .
@@ -19,3 +20,7 @@ docker stop $(docker ps -a -q) &&  docker rm $(docker ps -a -q) && docker rmi $(
 
 docker container exec -it aandolg_container_8080 /bin/bash -c "sed -i 's/day1/day 1/g;' /usr/share/nginx/html/index.html"
 
+
+#TERMINAL 
+Pretty view json responce
+"json string"| python -m json.tool
