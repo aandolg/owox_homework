@@ -1,0 +1,15 @@
+#!/bin/bash
+cookie_name="uid"
+url="https://my.rozetka.com.ua/signin/"
+file_cookie="tmp/cookie"
+while [ "$1" != "" ]; do
+	case $1 in 
+		-cn | --cookie-name ) shift
+		cookie_name=$1;;
+		-u | --url ) shift
+		url=$1;;
+	esac
+	shift
+done
+curl -X GET -H 'Content-Type: text/html'  https://my.rozetka.com.ua/signin/ -c $file_cookie > tmp/page_sign_in
+cat $file_cookie | grep $cookie_name |  sed 's|.*\t||' #> ../tmp/request_tocken

@@ -1,0 +1,8 @@
+#!/bin/bash
+curl 'https://rozetka.com.ua/cgi-bin/form.php' \
+-H 'ajaxAction: https://my.rozetka.com.ua/checkout/' \
+-H "Cookie: uid=$REQ_TOCKEN;sid=$SID_R" \
+--data "user[recipient_title]=Alex%20test&user[address][locality_id]=28&user[phone][id]=59939050&user[email]=oanda.lg%40gmail.com&order[1][checkout_type]=site&order[1][delivery][self_receipt_id]=12934&order[1][delivery][method_id]=1&order[1][delivery][service_id]=5&order[1][delivery][locality_id]=28&order[1][delivery][pickup_id]=12934&order[1][delivery][address][city]=28&order[1][delivery][promised_delivery_datetime][start_time]=2018-10-31&order[1][additional_fields][recipient_title]=Alex%20test&order[1][additional_fields][first_name]=%D0%A2%D0%B5%D1%81%D1%82&order[1][additional_fields][last_name]=Test&order[1][additional_fields][second_name]=%D0%A2%D0%B5%D1%81%D1%82&order[1][is_callback_off]=1&order[1][is_gift]=false&order[1][is_test_order]=0&order[1][comment]=&order[1][grouped_order_id]=1&order[1][payment][method_id]=1&certificate[0]=&request_token=$REQ_TOCKEN" \
+--compressed \
+-c tmp/add_product_cookie
+

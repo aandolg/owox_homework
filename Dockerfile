@@ -18,7 +18,7 @@ RUN yum install -y wget openssl sed &&\
 COPY config/etc/. /etc/.
 
 ###Copy source files###
-COPY src/. /usr/share/nginx/html/.
+#COPY src/. /usr/share/nginx/html/.
 
 EXPOSE  80
 

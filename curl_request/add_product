@@ -1,0 +1,8 @@
+#!/bin/bash
+curl 'https://rozetka.com.ua/cgi-bin/form.php' \
+-H 'ajaxAction: https://my.rozetka.com.ua/cart/#add' \
+-H "Cookie: uid=$REQ_TOCKEN;sid=$SID_R" \
+--data "goods_id=$GOOD_ID&request_token=$REQ_TOCKEN" \
+--compressed \
+-c tmp/add_product_cookie
+

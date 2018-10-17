@@ -1,0 +1,11 @@
+curl 'https://my.rozetka.com.ua/cgi-bin/form.php' \
+-H "Cookie: uid=$REQ_TOCKEN; sid=$SID_R;" \
+-H 'ajaxAction: https://my.rozetka.com.ua/checkout/#getCheckoutData' \
+--data "locality_id=28&request_token=$REQ_TOCKEN" \
+--compressed
+   
+#curl 'https://my.rozetka.com.ua/cgi-bin/form.php' \
+#-H 'Cookie: uid=rB4eBlvYuRRUdW69BPH2Ag==; sid=0a091d400123af7c58ffe91bb43ae613; ' \
+#-H 'ajaxAction: https://my.rozetka.com.ua/checkout/#getTotalCostByDeliveryAndPayment' \
+#--data 'order[1][grouped_order_id]=1&order[1][delivery][method_id]=1&order[1][delivery][service_id]=5&order[1][delivery][locality_id]=28&order[1][delivery][pickup_id]=12934&order[1][payment][method_id]=1&request_token=rB4eBlvYuRRUdW69BPH2Ag%3D%3D' \
+#--compressed

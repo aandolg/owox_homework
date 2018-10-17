@@ -14,7 +14,7 @@ RUN chmod 777 /usr/bin/container-entrypoint /usr/bin/nginx18  &&\
     ln -s /usr/bin/container-entrypoint /
 
 ###Copy source files###
-COPY src/. /usr/share/nginx/html/.
+#COPY src/. /usr/share/nginx/html/.
 
 EXPOSE  80
 

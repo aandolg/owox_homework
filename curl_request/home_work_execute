@@ -1,0 +1,28 @@
+#!/bin/bash
+GOOD_ID=7680634 #https://rozetka.com.ua/intertool_ht_0522/p7680634/
+export GOOD_ID
+USER_R="oanda.lg@gmail.com"
+export USER_R
+PASSW="123123Q"
+export PASSW
+
+REQ_TOCKEN=`bash command/get_request_cookie_by_url`
+export REQ_TOCKEN
+
+echo "Autorize to rozetka"
+bash autorize_to_rozetka 
+
+echo "Add product"
+SID_R=`bash command/get_cookie_by_file -f "tmp/autorize_cookie" -cn "sid"`
+export SID_R
+bash add_product 
+
+echo "Checkout init"
+bash checkout_init 
+
+echo "Checkout execute"
+bash checkout
+
+echo "Order cancel"
+bash order_cancel
+

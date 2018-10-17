@@ -1,0 +1,15 @@
+#!/bin/bash
+file_cookie="tmp/cookie"
+cookie_name="uid"
+while [ "$1" != "" ]; do
+	case $1 in 
+		-cn | --cookie-name ) shift
+		cookie_name=$1;;
+		-f | --file-cookie ) shift
+		file_cookie=$1;;
+	esac
+	shift
+done
+
+#echo "Find $cookie_name in $file_cookie"
+cat $file_cookie | grep -P "\t$cookie_name" |  sed 's|.*\t||' #> ../tmp/request_tocken

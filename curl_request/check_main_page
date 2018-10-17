@@ -1,0 +1,9 @@
+#!/bin/bash
+curl -X GET  \
+-H 'Content-Type: text/html'  \
+-H 'Cookie: sid=9ede94e7fa30630b0c9c1efd032d2c5e;' \
+"https://my.rozetka.com.ua/" \
+-c tmp/cookie_my > tmp/main_cab_response
+
+ 
+

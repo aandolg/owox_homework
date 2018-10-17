@@ -1,0 +1,15 @@
+#!/bin/bash
+order_number=`curl 'https://my.rozetka.com.ua/profile/account/' \
+-H "Cookie: sid=$SID_R" \
+--compressed \
+-c tmp/add_product_cookie | grep "invoices.addOrder(" | grep -o -E '[0-9]+' | head -1`
+
+echo $order_number
+echo "order_id=$order_number&request_token=$REQ_TOCKEN" 
+curl 'https://rozetka.com.ua/cgi-bin/form.php' \
+-H 'ajaxAction: https://my.rozetka.com.ua/profile/account/order-cancel/#cancelOrder' \
+-H "Cookie: uid=$REQ_TOCKEN;sid=$SID_R" \
+--data "order_id=$order_number&request_token=$REQ_TOCKEN" \
+--compressed \
+-c tmp/add_product_cookie
+
