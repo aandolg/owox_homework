@@ -2,33 +2,33 @@
 В https://developer.github.com/v4/explorer/
 сформировать graphql запрос который вернет:
 
-1.Логин и имя пользователя
-query getUser($login:String="aandolg") {
- user(login: $login){
-   login,
-   name
- }
+query executeHomeWork($login: String = "aandolg", $countRepo: Int = 5, $countUser: Int = 5) {
+  #Логин и имя пользователя
+  user(login: $login) {
+    login
+    name
+  }
+  viewer {
+    #Топ n репозиториев (их название и дату создания) 
+    repositories(first: $countRepo, orderBy: {field: STARGAZERS, direction: DESC}) {
+      nodes {
+        name
+        createdAt
+      }
+    }
+    #Топ n пользователей за которыми вы следите (их имена) 
+    following(first: $countUser) {
+      nodes {
+        name
+      }
+    }
+  }
 }
 
-2. Топ n репозиториев (их название и дату создания) 
-query getTopRepo($count:Int=5) {
- viewer{
-   repositories(first:$count, orderBy: {field:STARGAZERS, direction:DESC}){
-     nodes{
-       name,
-       createdAt
-     }
-   }
- }
-}
 
-3. Топ n пользователей за которыми вы следите (их имена) 
-query getInterestingPeople($count:Int=5) {
- viewer{
-   following(first:$count){
-     nodes{
-       name
-     }
-   }
- }
+Query Variables
+{
+  "countRepo": 2,
+  "login": "aandolg",
+  "countUser": 5
 }
