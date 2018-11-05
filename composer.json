@@ -1,0 +1,23 @@
+{
+    "name": "aandolg/3rd_php_unit_pattern",
+    "description": "Home work 3rd_php_unit_pattern",
+    "minimum-stability": "dev",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Starchenko Alex",
+            "email": "aando.lg@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "html/"
+        ],
+        "psr-4": {
+            "GoodWorkIn\\": "src/GoodWorkIn"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    }
+}

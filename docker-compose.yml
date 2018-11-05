@@ -1,0 +1,13 @@
+version: '3'
+services:
+  phpservice:
+    image: php:7.2.11-apache-stretch
+    ports:
+     - "8081:80"
+    volumes:
+      - ./src/:/var/www/html/src
+      - ./bash/:/var/www/bash
+      - ./tests/:/var/www/tests
+      - ./example/:/var/www/html/example
+      - ./composer.json:/var/www/composer.json
+      - ./phpunit.xml:/var/www/phpunit.xml
